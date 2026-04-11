@@ -1,0 +1,8 @@
+a.active{
+    color: purple;
+    text-decoration: underline;
+    font-weight: 600;
+}
+p{
+    color: gray;
+}
