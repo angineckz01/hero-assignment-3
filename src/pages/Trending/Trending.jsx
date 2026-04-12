@@ -1,10 +1,10 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { NavLink, useLoaderData } from 'react-router';
 import TrendingApp from '../TrendingApp/TrendingApp';
 
 const Trending = () => {
     const trendingData = useLoaderData()
-    console.log(trendingData);
+    // console.log(trendingData);
     return (
         <div className='my-12'>
             <div className='text-center my-4'>
@@ -21,7 +21,7 @@ const Trending = () => {
                 }
             </div>
             <div className='text-center mt-8'>
-                <button className='btn bg-purple-500 text-white'>Show All</button>
+                <NavLink to={'/apps'} className='btn bg-purple-500 text-white'>Show All</NavLink>
             </div>
         </div>
     );
