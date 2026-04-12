@@ -47,7 +47,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex items-center">
-            <img className="w-10 h-10" src={logo} alt="website logo image" />
+            <img className="w-10 h-10 hidden md:flex" src={logo} alt="website logo image" />
             <a className="btn btn-ghost text-xl font-semibold text-purple-400"> Hero.IO</a>
         </div>
       </div>

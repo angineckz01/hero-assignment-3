@@ -1,14 +1,14 @@
 import React from 'react';
 import downloadsIcon from '../../assets/icon-downloads.png'
 import iconRatings from '../../assets/icon-ratings.png'
+import { Link } from 'react-router';
 
 const TrendingApp = ({app}) => {
-    // console.log(app);
     const{title, image, downloads, ratingAvg} = app;
     return (
-        <div className='p-5 border border-gray-300 rounded-2xl'>
+        <Link to={`/appDetails/${app.id}`} className='p-5 border border-gray-300 rounded-2xl'>
             <div>
-                <img className='h-72 object-cover rounded-lg' src={image} alt="trending image" />
+                <img className='h-72 object-cover w-full rounded-lg' src={image} alt="trending image" />
             </div>
             <div>
                 <h3 className='font-semibold text-xl'>{title}</h3>
@@ -21,7 +21,7 @@ const TrendingApp = ({app}) => {
                         {ratingAvg} </button>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 };
 
