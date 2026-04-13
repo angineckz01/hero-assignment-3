@@ -4,12 +4,12 @@ import Home from "../../pages/Home/Home";
 import Apps from "../../pages/Apps/Apps";
 import AppDetails from "../../pages/AppDetails/AppDetails";
 import Installation from "../../pages/Installation/Installation";
-import InstalledApps from "../../pages/InstalledApps/InstalledApps";
-import InstalledApp from "../../pages/InstalledApp/InstalledApp";
+import ErrorPage from "../../pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
     {path: '/', 
         Component: Root,
+        // errorElement: <ErrorPage></ErrorPage>,
         children: [
             {index: true, 
                 loader: ()=> fetch('trendingData.json'),
@@ -20,16 +20,10 @@ export const router = createBrowserRouter([
             {path: 'installation', 
                 loader: () => fetch('allAppsData.json'),
                 Component: Installation},
-            // {path: 'installedApps/:id', 
-            //     loader: () => fetch('allAppsData.json'),
-            //     Component: InstalledApps},
             {path: '/appDetails/:id', 
                 loader: () => fetch('allAppsData.json'),
-                Component: AppDetails,
-            children: [
-                {index: true, Component: InstalledApp},
-                
-            ]}
+                Component: AppDetails},
+            {path: '*', Component: ErrorPage}
         ]
     }
 ])

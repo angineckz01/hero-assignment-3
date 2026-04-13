@@ -22,7 +22,7 @@ const AppDetails = () => {
     const {image, title, description, companyName, downloads, ratingAvg, reviews, size} = singleApp;
     return (
         <div className='my-12 space-y-4'>
-            <div className='grid gap-8 grid-cols-12 my-4'>
+            <div className='md:grid gap-8 grid-cols-12 my-4'>
                 <div className='col-span-4'>
                     <img src={image} alt="" />
                 </div>
