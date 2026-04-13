@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLoaderData } from 'react-router';
 import TrendingApp from '../TrendingApp/TrendingApp';
 import { FaSearch } from 'react-icons/fa';
+import NoApps from '../NoApps/NoApps';
 
 const Apps = () => {
     const appsData = useLoaderData()
@@ -30,9 +31,9 @@ const Apps = () => {
             </div>
             <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-3'>
                 {
-                    filteredApps.map(app => <TrendingApp
+                    filteredApps.length > 0? filteredApps.map(app => <TrendingApp
                         key={app.id}
-                        app={app} />)
+                        app={app} />): <NoApps onReset={() => setSearch("")}></NoApps>
                 }
             </div>
         </div>
