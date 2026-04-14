@@ -16,7 +16,9 @@ const addToLS = (key, id) => {
 }
 const removeFromLS = (key, id) => {
     const storedData = getStoredData(key);
+    // console.log('storedData', storedData);
     const updated = storedData.filter(item => item !== id);
     localStorage.setItem(key, JSON.stringify(updated));
+    console.log('updated local Storage here', updated);
 }
 export {addToLS, getStoredData, removeFromLS}

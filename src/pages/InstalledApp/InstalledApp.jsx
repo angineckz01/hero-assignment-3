@@ -2,10 +2,14 @@ import React from 'react';
 import downloadIcon from '../../assets/icon-downloads.png'
 import ratingsIcon from '../../assets/icon-ratings.png'
 
+const InstalledApp = ({data, handleUninstall}) => {
+    const {image, title, downloads, id, ratingAvg, size} = data;
+    const IdSTR = String(id);
+    const onUninstall = () => {
+        const idSTR = String(id);
+        handleUninstall(idSTR);
+    }
 
-const InstalledApp = ({data}) => {
-    // console.log('installed app' , data);
-    const {image, title, downloads, ratingAvg, size} = data;
     return (
         <div className='flex items-center justify-between border border-gray-300 p-4 rounded-xl'>
             <div className='flex gap-2'>
@@ -25,9 +29,7 @@ const InstalledApp = ({data}) => {
                     </div>
                 </div>
             </div>
-            <div>
-                <button className='btn bg-green-400 text-white'>Uninstall</button>
-            </div>
+            <button onClick={()=> onUninstall(IdSTR)} className='btn bg-green-400 text-white'>Uninstall</button>
         </div>
     );
 };

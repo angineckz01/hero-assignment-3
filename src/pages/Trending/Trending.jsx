@@ -1,10 +1,15 @@
 import React from 'react';
-import { NavLink, useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
 import TrendingApp from '../TrendingApp/TrendingApp';
 
 const Trending = () => {
     const trendingData = useLoaderData()
+    const navigate = useNavigate()
     // console.log(trendingData);
+    const handleShowAll =() => {
+        window.scrollTo({top: 0, behavior: 'smooth'})
+        navigate('/apps')
+    }
     return (
         <div className='my-12'>
             <div className='text-center my-4'>
@@ -21,7 +26,7 @@ const Trending = () => {
                 }
             </div>
             <div className='text-center mt-8'>
-                <NavLink to={'/apps'} className='btn bg-purple-500 text-white'>Show All</NavLink>
+                <button onClick={()=> handleShowAll()} className='btn bg-purple-500 text-white'>Show All</button>
             </div>
         </div>
     );

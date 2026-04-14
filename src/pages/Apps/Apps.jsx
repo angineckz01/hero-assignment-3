@@ -13,7 +13,7 @@ const Apps = () => {
         setSearch(searchResult);
     }
 
-    const filteredApps = appsData.filter(app =>
+    const appSearchFilter = appsData.filter(app =>
         app.title.toLowerCase().includes(search.toLowerCase())
     );
     return (
@@ -23,7 +23,7 @@ const Apps = () => {
                 <p>Explore All Apps on the Market developed by us. We code for Millions</p>
             </div>
             <div className='md:flex space-y-3 md:space-y-0 items-center justify-between'>
-                <h3 className='font-semibold text-2xl'> ({filteredApps.length}) Apps Found</h3>
+                <h3 className='font-semibold text-2xl'> ({appSearchFilter.length}) Apps Found</h3>
                 <form className='border flex gap-3 items-center border-gray-300 p-2 rounded-md'>
                     <FaSearch/>
                     <input onChange={handleSearch} defaultValue={search} type="text" placeholder='searchBar' />
@@ -31,7 +31,7 @@ const Apps = () => {
             </div>
             <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-3'>
                 {
-                    filteredApps.length > 0? filteredApps.map(app => <TrendingApp
+                    appSearchFilter.length > 0? appSearchFilter.map(app => <TrendingApp
                         key={app.id}
                         app={app} />): <NoApps onReset={() => setSearch("")}></NoApps>
                 }
