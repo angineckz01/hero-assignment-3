@@ -14,6 +14,18 @@ const Installation = () => {
     return appsData.filter(app => convertedStoredData.includes(app.id))
 }
     const [filteredApps, setFilteredApps] = useState(getFilteredApps)
+    const [sort, setSort] = useState(false)
+    // console.log('filtered apps are here', filteredApps);
+    const handleSort = (type)=> {
+        setSort(type)
+        if(sort === 'descending'){
+            const updatedApps = filteredApps.sort((a, b) => a.size - b.size);
+            setFilteredApps(updatedApps)
+        } else if(sort === 'ascending'){
+            const updatedApps = filteredApps.sort((a, b)=> b.size - a.size);
+            setFilteredApps(updatedApps);
+        }
+    }
     const handleUninstall = (appId) => {
         removeFromLS('installedApps', appId);
         setFilteredApps(getFilteredApps());
@@ -28,10 +40,11 @@ const Installation = () => {
             <div className='flex items-center font-semibold text-xl justify-between'>
                 <h3>{filteredApps.length} Apps Found</h3>
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn m-1">Sort By:</div>
+                    <div tabIndex={0} role="button" className="btn m-1">Sort By: {sort ==='ascending'? 
+                    'Low - High' : 'High - Low'} </div>
                     <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                        <li><a>High - Low</a></li>
-                        <li><a>Low - High</a></li>
+                        <li><a onClick={() => handleSort('descending')}>High - Low</a></li>
+                        <li><a onClick={() => handleSort('ascending')}>Low - High</a></li>
                     </ul>
                 </div>
             </div>

@@ -60,7 +60,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn"><FaGithub/>Contribute</a>
+        <a href="https://github.com/angineckz01" target="_blank" rel='noopener noreferrer' className="btn"><FaGithub/>Contribute</a>
       </div>
     </div>
   );
