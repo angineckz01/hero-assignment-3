@@ -10,8 +10,12 @@ const Banner = () => {
             <span className='text-purple-400'>Productive</span> Apps</h3>
             <p>At HERO.IO, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting. Our goal is to turn your ideas into digital experiences that truly make an impact.</p>
             <div className='flex gap-3 justify-center'>
-                <button className='btn btn-primary'><FaGooglePlay />Google Play</button>
-                <button className='btn btn-primary'><FaAppStoreIos />App Store</button>
+                <a href="https://play.google.com/store" target='_blank' rel='noopener noreferrer'>
+                    <button className='btn btn-primary'><FaGooglePlay />Google Play</button>
+                </a>
+                <a href="https://www.apple.com/app-store/" target='_blank' rel='noopener noreferrer'>
+                    <button className='btn btn-primary'><FaAppStoreIos />App Store</button>
+                </a>
             </div>
             <div>
                 <img src={hero} alt="banner hero image" />
